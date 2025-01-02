@@ -1,0 +1,88 @@
+<div *ngIf="!isLoading" style="width: 100%;">
+    <div class="iconn">
+        <div class="singlicon">
+            <button class="b1 bbh" [routerLink]="['']">
+                <i class="bi bi-person"></i>
+            </button>
+            <label for="">profile</label>
+        </div>
+    
+        <div class="singlicon">
+            <button class="b1" [routerLink]="['security']">
+                <i class="bi bi-shield-lock"></i>
+            </button>
+            <label for="">security</label>
+        </div>
+    
+    
+        
+    
+    
+        <div class="singlicon">
+            <button class="b1" [routerLink]="['help']">
+                <i class="bi bi-question-circle"></i>
+            </button>
+            <label for="">help</label>
+        </div>
+        
+    </div>
+    <form [formGroup]="updateDataForm">
+    <div class="procont">
+        <div class="imgg">
+            <div style="position: relative; width:100px;">
+                <img [src]="imageUrl" alt="" style=" height: 100px; width: 100px; clip-path: circle();">
+    
+                <input type="file" [formControl]="updateDataForm.get('file')" style="display: none" #fileInput (change)="onFileSelected($event)"> 
+                <div class="edit" *ngIf="!isEditingVar" (click)="fileInput.click()">
+                    <i class="bi bi-pencil-fill"></i>
+                </div>
+                <div class="edit remove" *ngIf="!isEditingVar">
+                    <i class="bi bi-x-lg" (click)="deletedPhoto()"></i>
+                                </div>
+            </div>
+    
+        </div>
+    
+        <div class="coolinput">
+            <label for="input" class="text">Name:</label>
+            <input type="text" placeholder="Write here..." class="input" formControlName="userName" (change)="ischaging()">
+            <label >{{validLableName}}</label>
+        </div>
+    
+        <div class="coolinput">
+            <label for="input" class="text">Phone Number:</label>
+            <input type="text" placeholder="Write here..." class="input" formControlName="phone" (change)="ischaging()">
+            <label >{{validLablePhoneNumber}}</label>
+
+        </div>
+    
+        <div class="coolinput">
+            <label for="input" class="text">Email:</label>
+            <input type="email" placeholder="Write here..." class="input" formControlName="Email">
+            <label style="color: red;" *ngIf="!isEditingVar">*To change your email go to security</label>
+        </div>
+        <div class="coolinput">
+            <label for="input" class="text" style="z-index: 1;">About me:</label>
+            <textarea type="text" style="padding: 5px;"  placeholder="About your self" name="input" class="input keycontry" formControlName="AboutMe"  (change)="ischaging()"> </textarea>       
+        <label style="color: red;">{{ValidLableAboutMe}}</label>
+          </div>
+        <div class="buttoms">
+            <div style="margin: 10px;">
+                <input type="submit" class="b1" value="Edit Informations" (click)="isEditing()">
+            </div>
+            <div style="margin: 10px;" *ngIf="!isEditingVar">
+                <input type="submit" (click)="updateUserData()" class="b1" value="confirm" >
+            </div>
+    
+    
+    
+        </div>
+    </div>
+    </form>
+    </div>
+    
+    <div *ngIf="isLoading" class="load">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>

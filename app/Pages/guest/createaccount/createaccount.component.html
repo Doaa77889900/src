@@ -1,0 +1,83 @@
+<div class="cont" *ngIf="!isLoading">
+    <div class="formm" >
+        <h1  style="margin-top: 5px; font-size: 35px;">Register</h1>
+        <form class="contentt" [formGroup]="creatAccount" (submit)="createAccount()">
+            <div class="coolinput">
+                <label for="input" class="text">Full Name:</label>
+                <input type="text" placeholder="Full Name" name="input" class="input" formControlName="Name">
+                <label style="color: red;">{{validLableName}}</label>
+            </div>
+            <div class="coolinput">
+                <label for="input" class="text">Email:</label>
+                <input type="email" placeholder="user@example.com" name="input" class="input" formControlName="userEmail">
+                <label style="color: red;">{{validLableEmail}}</label>
+            </div>
+            <div class="coolinput">
+                <label for="input" class="text">Password:</label>
+                <input [type]="password" placeholder="*******" class="input" formControlName="password" #passwords (ngModelChange)="passwordvalidation(passwords.value)">
+                <label class="passwordeye" (click)="passwordeye()">
+                    <i class="bi bi-eye" *ngIf="!show"></i>
+                    <i class="bi bi-eye-slash-fill" *ngIf="show"></i>
+
+                </label>
+                <label style="color: red;" *ngIf="validPassword">{{validLablePassword}}</label>
+                <label style="color: red;" *ngIf="!capitalvalid">{{capital}}</label>
+                <label style="color: green;" *ngIf="capitalvalid">{{capital}}</label>
+                <label style="color: red;" *ngIf="!lowervalid">{{lower}}</label>
+                <label style="color: green;" *ngIf="lowervalid">{{lower}}</label>
+                <label style="color: red;" *ngIf="!Numbervalid">{{Number}}</label>
+                <label style="color: green;" *ngIf="Numbervalid">{{Number}}</label>
+                <label style="color: red;" *ngIf="!Charvalid">{{Char}}</label>
+                <label style="color: green;" *ngIf="Charvalid">{{Char}}</label>
+
+
+            </div>
+            <div class="coolinput">
+            
+                <label for="input" class="text" style="z-index: 1;">Phone number:</label>
+                <input type="tel" id="phone" placeholder="07X XXXX XXX" name="input" class="input keycontry" formControlName="PhoneNumber" />
+                <label style="color: red;">{{validLablePhoneNumber}}</label>
+            </div>
+          
+               <div style="width: 100%;">
+                <select style="width:100%;height: 50px;text-align: center;margin-top: 20px;" #event (change)="Role(event.value)">
+                    <option [disabled]="true">Role</option>
+                    <option>Student</option>
+                    <option>Company</option>
+
+                </select>
+               </div>
+               <div class="coolinput" *ngIf="teahcer">
+                <label for="input" class="text" style="z-index: 1;">About me:</label>
+                <textarea type="text" style="padding: 5px;"  placeholder="About your self" name="input" class="input keycontry" formControlName="AboutMe" > </textarea>       
+            <label style="color: red;">{{ValidLableAboutMe}}</label>
+              </div>
+            <div style="width: 100%;">
+                <input type="submit" class="b1" value="Create account">
+            </div>
+            <div class="links" style="display: flex;width: 100%;justify-content: end    ; margin-top: 0px;">
+                <a href="" class="b1" routerLink="/signin">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <div style="justify-self:flex-end; width: 50%;display: flex; justify-content: center; align-items: center;" class="info"><img src="../../../../../assets/Asset2.png"  style="width: 400px;height: 400px; filter: drop-shadow(0px 0px 32px rgba(0, 0, 0, 0.253));"></div>
+
+</div>
+<router-outlet></router-outlet>
+
+
+<div *ngIf="isLoading" class="load" style="  display: flex;
+justify-content: center;
+align-items: center;
+/* margin: 50px auto; */
+position: absolute;
+background-color: rgb(255, 255, 255);
+width: 100%;
+height: 100%;
+top: 0;">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+  

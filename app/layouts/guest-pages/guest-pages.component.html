@@ -1,0 +1,71 @@
+<style>
+    .bot {
+        width: 500px;
+        display: flex;
+        justify-content: end;
+    }
+</style>
+<nav class="navbar navbar-expand-lg"
+style="background: #27b9be">
+<div class="container-fluid" style="  
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-between;
+align-content: center;
+flex-direction: row;
+width: 100%;">
+
+    <div>
+        <a class="navbar-brand" routerLink="" style="color: white;" ><img  style="width: 140px; height: 70px;" src="../../../assets/wisePathLogo.png"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav"
+            style="display: flex; width: 100%;justify-content: center; flex-wrap: nowrap; align-items: center;">
+
+
+            <li class="nav-item">
+                <a class="nav-link active" style="color: white;" aria-current="page" routerLink="">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: white;" routerLink="/compaines">Companies </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: white;" routerLink="/roadMap">RoadMaps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: white;" routerLink="/contact">Contact</a>
+            </li>
+        </ul>
+        <div style="display: flex;justify-content: center;" *ngIf="!isLogin"> <a routerLink="/signin">Login</a></div>
+        <div style="display: flex;justify-content: center;" *ngIf="!isLogin"> <a routerLink="/CreateAccounts">Register</a></div>
+        <div style="display: flex;justify-content: center;margin-right: 15px;"  *ngIf="isLogin" > 
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle userData" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" style="background-color: #27b9be;outline: none;border: none; width: fit-content;">
+                    <img [src]="userData.usersPictrues" width="30px" height="30px" style="border-radius: 50%;" alt="">
+ <span style="margin-left: 10px;font-size: 15px;font-weight: bold;">{{userData.userName}}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end custom-dropdown-menu" >
+                  <li><button class="dropdown-item" routerLink="/profile" type="button">Profile</button></li>
+                  <li><button class="dropdown-item" routerLink="contact" type="button">Contact</button></li>
+                  <li><button class="dropdown-item" (click)="logout()" type="button">Logout</button></li>
+                </ul>
+              </div>
+              
+              
+        </div>
+
+    </div>
+
+    <div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+            style="background-color: aliceblue;">
+            <span class="navbar-toggler-icon" style="color: brown;"></span> </button>
+    </div>
+</div>
+</nav>
+
+<router-outlet></router-outlet>

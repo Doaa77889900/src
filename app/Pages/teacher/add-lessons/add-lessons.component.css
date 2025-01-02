@@ -1,0 +1,211 @@
+:host {
+    background-color: rgb(234, 234, 234);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title1{
+    margin-top: 80px;
+        text-align: center;
+    margin-bottom: -120px;
+}
+.container {
+    display: flex;
+    margin: 10%;
+    background-color: white;
+    height: fit-content;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 15px ;
+    
+}
+
+.image1 {
+
+    width: auto;
+    height: 40vh;
+}
+
+.input1 {
+    width: 500px;
+    height: 50px;
+}
+
+.inputs {
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.coolinput {
+    display: flex;
+    flex-direction: column;
+    /* width: fit-content; */
+    /* position: static; */
+    width: 350px;
+    position: relative;
+}
+
+.coolinput label.text {
+    font-size: 0.75rem;
+    color: #0000004d;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    margin-bottom: -20px !important;
+    width: fit-content;
+}
+
+.coolinput input {
+    padding: 11px 20px;
+    font-size: 16px;
+    border: 1px #0000004d solid;
+    border-radius: 9px;
+    height: 50px;
+    width: 100%;
+
+}
+
+.typeselect {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    width: 350px;
+    position: relative;
+    padding: 11px 20px;
+    font-size: 16px;
+    border: 1px #0000004d solid;
+    border-radius: 9px;
+    height: 50px;
+    width: 100%;
+
+}
+
+label.text {
+    font-size: 0.75rem;
+    color: #0000004d;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    width: fit-content;
+    height: 50px;
+}
+.buttons{
+width: 70%;
+
+}
+.submitb{
+    background-color: #4CAF50;
+border-radius: 5px;
+color: white;
+font-weight: bold;
+border: 1px #0000004d solid;
+height: 40px;
+width: 100%;
+margin: 50px 0;
+}
+
+.coolinput1{
+    display: flex;
+    flex-direction: column;
+    color: #0000004d;
+    font-weight: 700;
+    margin: 0 0 0 7px;
+    margin-bottom: -20px !important;
+    padding: 11px 20px;
+    font-size: 16px;
+     width: 100%;
+}
+.file{
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+/* .text1{
+    font-size: 0.75rem;
+
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+} */
+.text,
+.text1 {
+    font-size: 0.75rem;
+    color: #0000004d;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    width: fit-content;
+    height: 60px;
+}
+
+.coolinput label.text,
+.coolinput1 label.text1 {
+    /* Other styles */
+    margin-bottom: -20px !important;
+}
+textarea{
+    border: 1px #0000004d solid;
+    border-radius: 9px;
+    padding: 11px 20px;
+}
+.progress-container {
+    width: 100%;
+    height: 10px; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4CAF50; /* Green progress */
+  }
+  
+  .progress-info {
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+  }.load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 50px auto; */
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .load div {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(26, 107, 103);
+    border-radius: 50%;
+    animation: up-and-down;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  .load .two {
+    animation-delay: 0.3s;
+  }
+  .load .three {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes up-and-down {
+    to {
+      opacity: 0.2;
+      transform: translatey(-20px);
+    }
+  }

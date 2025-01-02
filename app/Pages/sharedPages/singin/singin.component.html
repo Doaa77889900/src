@@ -1,0 +1,36 @@
+<div class="cont">
+    <div class="formm">
+        <h1 style="margin-top: 5px; font-size: 35px;">Login</h1>
+        <h6 style="color: red;margin-top: 20px;">{{ErrorsMesaage}}</h6>
+        <form class="contentt" [formGroup]="singInForm" (submit)="singInFunction()">
+            <div style="align-self: flex-start;margin-bottom: 15px;">
+                <label style="margin-right: 10px;margin-left: 5px;">New user?</label>
+                <a class="Create" href="" style="text-decoration: none; color: #0f868a;font-weight: 500;" routerLink="/CreateAccounts">Create an acount </a>
+                </div>
+                <div class="coolinput">
+                    <label for="input" class="text" style="color: rgb(0, 0, 0);">Email:</label>
+                        <input type="email" placeholder=""  class="input"  formControlName="userEmail">
+                    <label style="color: red;"> {{validLableEmail}}</label>
+                </div>
+                <div class="coolinput">
+                    <label for="input" class="text" style="color: rgb(0, 0, 0);">Password:</label>
+                    <input [type]="password" placeholder="" class="input" formControlName="password">
+                    <label class="passwordeye" (click)="passwordeye()">
+                        <i class="bi bi-eye" *ngIf="!show"></i>
+                        <i class="bi bi-eye-slash-fill" *ngIf="show"></i>
+
+                    </label>
+                    <label style="color: red;"> {{validLablePassword}}</label>
+                </div>
+                <div class="forgot" style="display: flex;width: 100%;justify-content: space-between; margin-top: 5px;">
+                    <a routerLink="/forgotPassword" class="" style="text-decoration: none; color: #0f868a;font-weight:bolder;">Forget Password !</a>
+                 </div>
+                <div style="width: 100%;">
+                 <input type="submit"  class="b1" value="Submit">
+                </div>
+            </form>
+            
+        </div>
+        <div style="justify-self:flex-end; width: 50%;display: flex; justify-content: center; align-items: center;" class="info"><img src="../../../../assets/Asset2.png"  style="width: 400px;height: 400px; filter: drop-shadow(0px 0px 32px rgba(0, 0, 0, 0.253));"></div>
+</div>
+    

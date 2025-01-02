@@ -1,0 +1,48 @@
+:host {
+
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+    background-image: url('../../../../../assets/background.png');
+    background-size: 100% 100%;
+    height: 100vh;
+  
+  }
+  
+  .listbutton {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 3px solid #0f868a;
+    background-color: #ffffff;
+    border-radius: 9px;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  
+  
+  .b1 {
+    width: 40%;
+    height: 50px;
+    border: 3px solid;
+    border-radius: 9px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: #0f868a;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin: 5px;
+  
+  }
+  
+  @media (max-width: 800px) {
+    .b1 {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,56 @@
+
+<div *ngIf="thereisnoteahcer">there is no teahcer</div>
+<div style="width: 100%;" *ngIf="!thereisnoteahcer">
+<div class="main" >
+    <div class="maininfo">
+        <img src="{{teacherData.teacherData.usersPictrues}}" alt="" style=" height: 150px; width: 150px; clip-path: circle();">
+        <h2>{{teacherData.teacherData.userName}}</h2>
+        <h5>Rate</h5>
+        <div style=" display: flex; justify-content: space-between;">
+            <div>
+                <i class="bi bi-star-fill stars" *ngFor="let _ of [].constructor(parseInt(teacherData.reating))"></i>
+                <i class="bi bi-star stars" *ngFor="let _ of [].constructor(5 - parseInt(teacherData.reating))"></i>
+                  
+            </div>
+        </div>
+    </div>
+
+
+    <div class="secinfo">
+        <h1>About Me</h1>
+        <p>{{teacherData.teacherData.aboutMe}}</p>
+    </div>
+
+
+</div>
+<hr style="width: 90%; align-self: center; margin-top: 30px;">
+<h1 style="display: flex;justify-content: center;margin-top: 15px;">My courses</h1>
+<div class="coursesSet">
+    <div class="cardd" *ngFor="let iteams of teacherData.courses">
+        <div class="mainimage"><img src="{{iteams.picture}}"></div>
+        <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+            <div style="margin-bottom: 5px;">
+                <h3 style="margin-bottom: 0px;">{{iteams.courseName}}</h3>
+                <i class="bi bi-star-fill stars"*ngFor="let _ of [].constructor(iteams.rating||0)"></i>
+                <i class="bi bi-star stars"  *ngFor="let _ of [].constructor(5-iteams.rating||0)"></i>
+        
+            </div>
+            <div>
+                <h2 for="">{{iteams.couresValue}}$</h2>
+            </div>
+        </div>
+        <div class="discreb">
+            <p>{{iteams.couresDescription}}</p>
+        </div>
+        <div class="cardTecher">
+            <div style="display: flex;"><img src="{{iteams.teacherPicture}}" alt="">
+                <h6 style="margin-left: 5px; margin-top: 5px;">{{iteams.teacherName}}</h6>
+            </div>
+            <label style="margin-top: 5px; font-size: medium; font-weight: bold;">students: {{iteams.numberOfStudents}}</label>
+        </div>
+
+        <button class="Btn" routerLink="/course/{{iteams.courseId}}">
+            join
+        </button>
+    </div>
+</div>

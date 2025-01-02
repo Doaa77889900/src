@@ -1,0 +1,142 @@
+<section id="hero" class="d-flex flex-column justify-content-center" >
+  <div class="container" data-aos="zoom-in" data-aos-delay="100">
+    <h1 style="margin-right:170px !important; "></h1>
+    <p style="margin-right:100px !important; "><span class="typed"></span></p>
+  </div>
+</section><!-- End Hero -->
+<!-- features siction -->
+<h1 style="margin-top: 60px;width: 100%;text-align: center; font-weight: bolder; font-size: 35px;">Features</h1>
+<hr style="width: 76%;margin: 20px auto;">
+<div class="features">
+<div>
+    <img src="../../../../assets/wide network.png" alt="" style="border-radius: 15px;">
+    <span class="featuresName" >
+    </span>
+    
+    <hr width="76%" />
+    <p >
+      Wide Network of Training Companies:Access a trusted network of cpmpanies for intership opportunities.   </p>   </div>
+
+<div>
+    <img src="../../../../assets/advice.png" alt="" style="border-radius: 15px;">
+
+    <hr width="76%" />
+    <p>
+      Professional Advice and Guidance: Get expert tips yo shape your career path.      </p>
+</div>  
+<div  >
+    <img src="../../../../assets/review.png" alt="" style="border-radius: 15px; ">
+
+    <hr width="76%" />
+    <p>
+      Student Feedback: Explore company reviews from past trainees.      </p>
+</div>
+</div>
+<!-- <h1 style="text-align: center;font-weight: bolder;font-size: 35px;">Most Common</h1>
+<div style="width: 90%; padding: 10px; margin: auto; border: 1px solid rgba(0, 0, 0, 0.29);border-radius: 15px; display: flex;
+justify-content: space-between; align-items: center;">
+
+<div class="navigation-buttons">
+  <button style="
+  border-radius: 15px;
+  width: 100%;
+  height: 100px;
+  color: #ffffff;
+  border-color: #000000;
+  background-color: #6856A4;
+  font-size: 40px;
+  font-weight: bolder;
+  " (click)="prevCards()" [disabled]="startIndex === 0"><</button>
+  </div>
+
+<div class="carousel">
+<div *ngFor="let card of cards.slice(startIndex, startIndex + visibleCards)" class="carousel-cell">
+  <div class="cardd">
+      <div class="mainimage"><img src="{{card.picture}}" style="  width: 100%;
+        border-radius: 12px 12px 0 0;
+        height: 180px"></div>
+      <div style="margin-top: 10px;display: flex;justify-content: space-between;align-items: center;">
+        <div style="margin-bottom: 5px;">  <h1 style="margin-bottom: -5px;">{{card.courseName}}</h1>
+          <i class="bi bi-star-fill stars" *ngFor="let _ of [].constructor(card.rating||0)"></i>
+              <i class="bi bi-star stars" *ngFor="let _ of [].constructor(5-card.rating||0)"></i>
+          </div>
+          <h4>{{card.couresValue}}$</h4>
+
+      </div>
+      <div class="discreb" style="  width: 100%;
+      height: 50px;
+      overflow: hidden !important;
+      font-size: 10px">
+          <p>i{{card.couresDescription}}</p>
+
+      </div>
+      <div class="cardTecher">
+          <div style="display: flex;"><img src="{{card.teacherPicture}}" alt="">
+              <h4 style="margin-left: 5px; margin-top: 5px;">{{card.teacherName}}</h4>
+          </div>
+          <label style="margin-top: 5px; font-size: medium; font-weight: bold;" >students: {{card.numberOfStudents}}</label>
+      </div>
+      <div style="display:flex ; justify-content:center;align-items: center;padding-top:10px ;">
+      
+          <button class="Btn">
+
+              <div class="sign"><i class="bi bi-arrow-right" style="color: white; font-size: 20px;"></i>
+              </div>
+
+              <div class="text" routerLink="/course/{{card.courseId}}">join</div>
+          </button>
+      </div>
+  </div>
+
+
+  
+
+</div>
+</div> 
+
+<div class="navigation-buttons">
+
+<button style="
+border-radius: 15px;
+width: 100%;
+height: 100px;
+color: #ffffff;
+border-color: #000000;
+background-color: #6856A4;
+font-size: 40px;
+font-weight: bolder;
+" (click)="nextCards()" [disabled]="startIndex === (cards.length - visibleCards)">></button>
+</div>
+</div>  -->
+
+
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+<div class="container">
+  <h3>WISE Path</h3>
+  <p>WISE PATH is an innovative platform designed to streamline the process of finding quality training opportunities
+     for university students and recent graduates.
+    The platform serves as a bridge connecting companies offering training programs with students seeking hands-on experiences
+    to develop their skills and enhance their expertise. WISE PATH provides a user-friendly interface
+     that enables companies to advertise their programs,
+    students to apply for them, and academic supervisors to efficiently manage and monitor the process</p>
+  <div class="social-links">
+    <a href="#" class="twitter"><i class="bi bi-twitter-x"></i>
+    </a>
+    <a href="https://www.facebook.com/groups/1081733032244003" target="_blank" class="facebook"><i class="bi bi-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/megateamwise" class="instagram" target="_blank"> <i class="bi bi-instagram"></i>
+    </a>
+  </div>
+  <div class="copyright">
+    &copy; Copyright <strong><span>WISE PATH</span></strong>. All Rights Reserved
+  </div>
+
+</div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+

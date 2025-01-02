@@ -1,0 +1,37 @@
+<h1 style="text-align: center;">Contact</h1>
+<div class="contactContainer">
+    <div class="buttons">
+        <div class="Location"><h3><i class="bi bi-geo-alt-fill"></i>
+
+            <span style="margin-left: 12px; ">Location</span></h3> <p>Amman - Jordan</p></div>
+        <div class="Location"><h3><i class="bi bi-envelope"></i>
+            <span style="margin-left: 12px;">Email</span></h3> <p>WisePath@example.com</p></div>
+        <div class="Location"><h3><i class="bi bi-telephone-fill"></i>
+
+         <span style="margin-left: 12px;">Call</span></h3><p> 07X XXXX XXX</p></div>
+    </div>
+    <div class="formGroup">
+       <form [formGroup]="contactDataFrom" (ngSubmit)="addContact()">
+        <div class="line1">
+            <input type="text" placeholder="Your name" style=" margin-right: 10px;" formControlName="Name">
+            <label style="color: red;">{{validNameLable}}</label>
+            <input type="email" placeholder="Email" formControlName="userEmail">
+            <label style="color: red;">{{validUserEmail}}</label>
+
+        </div>
+        <div class="line2">
+            <input type="text" placeholder="subject" formControlName="subject">
+            <label style="color: red;">{{validSubject}}</label>
+
+        </div>
+        <div class="line3">
+            <textarea name="" id=""  cols="51" rows="4" formControlName="body"></textarea>
+            <label style="color: red;">{{validBody}}</label>
+
+        </div>
+        <div class="line4">
+            <input type="submit" value="send message" class="send">
+        </div>
+       </form>
+    </div>
+</div>

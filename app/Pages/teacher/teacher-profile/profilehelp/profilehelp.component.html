@@ -1,0 +1,36 @@
+<div class="iconn">
+    <div class="singlicon">
+        <button class="b1 " [routerLink]="['/company','profile']">
+            <i class="bi bi-person"></i>
+        </button>
+        <label for="">profile</label>
+    </div>
+  
+    <div class="singlicon">
+        <button class="b1" [routerLink]="['/company','profile','security']">
+            <i class="bi bi-shield-lock"></i>
+        </button>
+        <label for="">security</label>
+    </div>
+  
+    <div class="singlicon">
+        <button class="b1 bbh">
+            <i class="bi bi-question-circle"></i>
+        </button>
+        <label for="">help</label>
+    </div>
+    
+  </div>
+  <div class="procont">
+  <div class="helpcont">
+  
+    <div style="display: flex;flex-direction: column;">
+        <div *ngFor="let accordion of accordions; let i = index" class="accordion" style="height: fit-content;" [class.active]="accordion.active" (click)="toggleAccordion(i)">
+            <div class="accordion-header">{{ accordion.title }}</div>
+            <div class="accordion-content" style="white-space: pre-wrap;text-align: left;" [style.maxHeight.px]="accordion.active ? accordion.content.length * 20 : 0">
+                {{accordion.content}}
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>

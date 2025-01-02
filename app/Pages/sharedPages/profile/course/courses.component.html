@@ -1,0 +1,86 @@
+ <!-- ====================================================================== -->
+ <div style="width: 100%;" *ngIf="!isLoading">
+ <div class="iconn">
+  <div class="singlicon">
+      <button class="b1" [routerLink]="['/profile']">
+          <i class="bi bi-person"></i>
+      </button>
+      <label for="">profile</label>
+  </div>
+
+  <div class="singlicon">
+    <button class="b1" [routerLink]="['/profile', 'security']">
+      <i class="bi bi-shield-lock"></i>
+      </button>
+      <label for="">security</label>
+  </div>
+
+
+  <div class="singlicon">
+      <button class="b1 bbh" [routerLink]="['/profile', 'courses']">
+          <i class="bi bi-book"></i>
+      </button>
+      <label for="">companies</label>
+  </div>
+
+
+  <div class="singlicon">
+      <button class="b1" [routerLink]="['/profile', 'help']">
+          <i class="bi bi-question-circle"></i>
+      </button>
+      <label for="">help</label>
+  </div>
+</div>
+
+<div class="coursecont">
+  <div class="topcontact">
+
+      <div class="imgg">
+          <img [src]="imageUrl" alt="" style=" height: 100px; width: 100px; clip-path: circle();">
+      </div>
+
+
+
+
+
+  </div>
+
+
+<div style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center;"> 
+  <div class="cardd" *ngFor="let courses of coursesDeitel">
+      <div class="mainimage"><img src="{{courses.picture}}" alt=""></div>
+      <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+          <div style="margin-bottom: 5px;">
+              <h3 style="margin-bottom: 0px;">{{courses.courseName}}</h3>
+              <i class="bi bi-star-fill stars"*ngFor="let _ of [].constructor(courses.rating||0)"></i>
+                    <i class="bi bi-star stars"  *ngFor="let _ of [].constructor(5-courses.rating||0)"></i>
+            
+          </div>
+          <div>
+              <h2 for="">{{courses.couresValue}}$</h2>
+          </div>
+      </div>
+      <div class="discreb">
+          <p>{{courses.couresDescription}}</p>
+      </div>
+      <div class="cardTecher">
+          <div style="display: flex;"><img src="{{courses.teacherPicture}}" alt="">
+              <h6 style="margin-left: 5px; margin-top: 5px;">{{courses.teacherName}}</h6>
+          </div>
+          <label style="margin-top: 5px; font-size: medium; font-weight: bold;">students: {{courses.numberOfStudents}}</label>
+      </div>
+
+          <button class="Btn" [routerLink]="['/course',courses.courseId]">
+              join
+          </button>
+  </div>
+
+</div>
+</div>
+</div>
+
+<div *ngIf="isLoading" class="load">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>

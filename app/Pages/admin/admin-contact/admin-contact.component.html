@@ -1,0 +1,26 @@
+<h1 style="text-align: center; margin-top: 10px;">Contacts:</h1>
+
+<div style="width: 100%; height: fit-content; display: flex; flex-wrap: wrap;">
+    <div *ngFor="let contact of concats; let i = index" class="contact-card" 
+         [ngClass]="{'active': activeIndex === i}"
+         (mouseenter)="setActive(i)">
+        <div style="position: absolute; top: -11px; right: -12px;background-color: white;" *ngIf="contact.done">
+            <i class="bi bi-check-circle-fill" style="color: green; font-size: 27px;"></i>
+        </div>
+        <button class="make-done-btn" *ngIf="!contact.done" 
+                (click)="makeItDone(contact.contactId, i)"
+                (mouseleave)="resetActive()">
+            Make as Done
+        </button>
+        <h1>{{contact.name}}</h1>
+        <h3>{{contact.subject}}</h3>
+        <p>{{contact.message}}</p>
+        <p>{{contact.email}}</p>
+
+    </div>
+</div>
+
+
+<div *ngIf="!(concats && concats.length > 0)" style="text-align: center; width: 100%;">
+    Loading contacts...
+</div>

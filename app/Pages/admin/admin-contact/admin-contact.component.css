@@ -1,0 +1,25 @@
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-left: 10px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    overflow: visible; /* Ensure content overflow is visible */
+}
+
+.make-done-btn {
+    position: absolute;
+    top: -38px;
+    right: 33%;
+    display: none; /* Initially hide the button */
+}
+
+.contact-card.active .make-done-btn {
+    display: block; /* Show the button when the div is active */
+}
+
+.contact-card:hover .make-done-btn {
+    display: block; /* Show the button when the div is hovered */
+}

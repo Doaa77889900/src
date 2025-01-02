@@ -1,0 +1,213 @@
+
+<div style="width: 100vw;height: 100vh;display: flex;justify-content: center;align-items: center;" *ngIf="thereIsNoLessons">
+  there is no lessons
+</div>
+    <!-- ---------------------------------------------------------------------------------------------- -->
+    <div style="width: 100%;" *ngIf="!isLoading"> 
+    <div *ngIf="!thereIsNoLessons">
+    <div class="wrapper">
+
+        <!-- Sidebar  -->
+
+        <nav id="sidebar" [class.active]="sidebarActive">
+            <div id="dismiss" (click)="toggleSidebar()">
+                <i class="bi bi-x-lg"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>{{lessonsDate.courseName}}</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <button class="accordion-button" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Lessons
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" *ngFor="let lessons of lessonsDate.courseLessons" routerLink="/teacher/lessons/{{lessons.courseId}}/{{lessons.lessonsNum}}">
+                            <div class="card-body">
+                                <div style="display:flex ; justify-content:space-between;">
+                                    <button class="classbutton"> {{lessons.lessonsName}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    About
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                            <div class="card-body">
+                                <a href="#">Page 1</a>
+                                <a href="#">Page 2</a>
+                                <a href="#">Page 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+
+
+            </ul>
+
+        </nav>
+    </div>
+
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sec-nav">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" (click)="toggleSidebar()" class="filterButton">
+                    <span>lessons</span>
+                </button>
+
+                <div>
+
+                    <a href="" style="text-decoration:none">{{lessonsDate.courseName}}</a>
+                    <a href="" style="text-decoration:none">>{{lessonsDate.lesson.lessonsName}}</a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="videocontent">
+          <button 
+          style="width: 80px; border: none;border-radius: 6px;font-size: 16px;font-weight: bold; color: white;"
+          [style.background-color]="idOfLessons > 1 ? '#6856A4' : '#CCCCCC'"
+          [disabled]="idOfLessons <= 1"
+          (click)="goBack()">
+          Back
+        </button>
+            <h1 style="margin-bottom: 25px;">{{lessonsDate.lesson.lessonsName}}</h1>
+            <div style="display: flex;">
+                <img src="{{lessonsDate.teacherInfoApi.picture}}" style="width:30px;height:30px;clip-path:circle()" alt="">
+                <a href="" style="margin-top: 5px; margin-left: 5px; text-decoration:none" routerLink="/teacherProfile/{{lessonsDate.teacherInfoApi.userName}}">{{lessonsDate.teacherInfoApi.userName}}</a>
+            </div>
+        </div>
+        <div class="videoo">
+            <div class="videoplay">
+                
+                <iframe
+                [src]="videourl|myPipe"
+                width="640"
+                height="360"
+                allow="encrypted-media; picture-in-picture"
+                style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                allowfullscreen
+                frameborder="0"
+              ></iframe>
+                
+                <!-- ============================= -->
+                <div class="commentss">
+                    <h1 style="margin-bottom: 25px;">Comments :</h1>
+
+                    
+
+                    <div class="comment">
+                        <div *ngFor="let comment of comments; let i=index">
+                          <!-- Display main comment information -->
+                          <div style="display: flex; justify-content: space-between;">
+                            <div style="display: flex;"><img src="{{ comment.userPicture }}" alt="" class="commentPhoto">
+                            <label style="margin-top: 5px; margin-left: 5px; text-decoration: none; font-size: large; font-weight: bold;">{{ comment.userName }}</label>
+                          </div>
+                            <label><i class="bi bi-x-circle" style="font-size: 20px;color: red;" (click)="deleteComment(comment.commentId,i,1,0)"></i></label>
+                          </div>
+                          <div style="width: 100%;" >
+                            <p>{{ comment.comments }}</p>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; width: 65px; margin-top: 10px;">
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                           <label style="cursor: pointer;"><i class="bi bi-hand-thumbs-up-fill"  *ngIf="!comment.isLiked && !comment.isDisliked" style="color: darkgray; font-size: 20px;"></i></label>
+                           <label >  <i class="bi bi-hand-thumbs-up-fill" *ngIf="!comment.isLiked && comment.isDisliked" style="color: rgb(128, 128, 128); font-size: 20px;"></i></label>
+                            <label style="cursor: pointer;" >  <i class="bi bi-hand-thumbs-up-fill" *ngIf="comment.isLiked" style="color: rgb(0, 140, 255); font-size: 20px;"></i></label>
+
+                              {{ comment.like }}
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                              <label style="cursor: pointer;" >   <i class="bi bi-hand-thumbs-down-fill" *ngIf="!comment.isDisliked && !comment.isLiked" style="color: darkgray; font-size: 20px;"></i> </label > 
+                                <label >  <i class="bi bi-hand-thumbs-down-fill" *ngIf="!comment.isDisliked && comment.isLiked" style="color: rgb(128, 128, 128); font-size: 20px;"></i></label > 
+                                  <label style="cursor: pointer;" >  <i class="bi bi-hand-thumbs-down-fill" *ngIf="comment.isDisliked" style="color: rgb(255, 0, 0); font-size: 20px;"></i></label > 
+                              {{ comment.dislike }}
+                            </div>
+                          </div>
+                      
+                          <!-- Display sub-comments -->
+                          <div *ngIf="comment.subComments && comment.subComments.length > 0">
+                            <div *ngFor="let subComment of comment.subComments;let s=index">
+                              <div style="display: flex; margin-top: 25px; justify-content: space-between;">
+                               <div><img src="{{subComment.userPicture}}" alt="" width="25px" height="25px" style="margin:0 7px 0 50px; border-radius: 50%;">
+                               <label>{{subComment.username}}</label>
+                                <label style="margin-top: 5px; margin-left: 5px; text-decoration: none; font-size: large; font-weight: bold;">{{ subComment.userName }}</label>
+                              </div> 
+                                <label style="align-self: flex-end;"><i class="bi bi-x-circle" style="font-size: 20px;color: red;" (click)="deleteComment(subComment.commentsId,i,2,s)"></i></label>
+
+                              </div>
+                              <div  style="width: 70%;;margin-left:50px ;">
+                                <!-- Display sub-comment text -->
+                                <p style="width: 100%;">{{ subComment.comments }}</p>
+                              </div>
+                              <div style="display: flex; justify-content: space-between; width: 80px; margin-top: 10px; margin-left:50px ;">
+                                <!-- Display sub-comment like and dislike counts -->
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                  <label style="cursor: pointer;" >  <i class="bi bi-hand-thumbs-up-fill" *ngIf="subComment.isLiked" style="color: rgb(0, 140, 255); font-size: 20px;"></i> </label >
+                                    <label style="cursor: pointer;">  <i class="bi bi-hand-thumbs-up-fill" *ngIf="!subComment.isLiked && !subComment.isDisliked" style="color: darkgray; font-size: 20px;"></i> </label >
+                                      <label >  <i class="bi bi-hand-thumbs-up-fill" *ngIf="!subComment.isLiked && subComment.isDisliked " style="color: rgb(128, 128, 128); font-size: 20px;"></i> </label >
+                                  {{ subComment.like }}
+                                </div>
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                  <label style="cursor: pointer;" >  <i class="bi bi-hand-thumbs-down-fill" *ngIf="!subComment.isDisliked && !subComment.isLiked" style="color: darkgray; font-size: 20px;"></i></label>
+                                  <label> <i class="bi bi-hand-thumbs-down-fill" *ngIf="!subComment.isDisliked && subComment.isLiked" style="color: rgb(128, 128, 128); font-size: 20px;"></i></label>
+                                  <label style="cursor: pointer;"><i class="bi bi-hand-thumbs-down-fill" *ngIf="subComment.isDisliked" style="color: rgb(255, 0, 0); font-size: 20px;"></i></label>
+                                  {{ subComment.dislike }}
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                      
+                          <!-- Add input for replying to the main comment -->
+                         
+                        </div>
+                      </div>
+                      
+
+       
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+  </div>
+</div>
+  <div *ngIf="isLoading" class="load" style="  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 50px auto; */
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  top: 0;">
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+    </div>
+    

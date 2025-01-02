@@ -1,0 +1,64 @@
+<div class="cardsContainer" *ngIf="isloading">
+    <div class="corses">
+        <p class="cardText">{{teacherData.courseCount}} courses</p>
+        <i class="bi bi-collection-play"></i>
+        
+    </div>
+    <div class="students">
+        <p class="cardText"> {{teacherData.enrollmentCount}} students</p>
+        <i class="bi bi-person-video3"></i>
+        
+        
+    </div>
+    <div class="earnings">
+        <p class="cardText">{{teacherData.totalCourseValue}}$</p>
+        <i class="bi bi-currency-exchange"></i>
+      
+    </div>
+    
+</div><br><hr>
+<br>
+
+<div class="courses" *ngIf="isloading">
+    <h1 style="font-size: 45px;">Your Trainings</h1>
+    <div class="courseBoxs">
+      <div class="cardd" *ngFor="let iteams of teacherCourses">
+        <div class="mainimage"><img src="{{iteams.picture}}"></div>
+        <div style="margin-top: 10px;display: flex;justify-content: space-between;align-items: center;">
+          <div style="margin-bottom: 5px;">  <h1 style="margin-bottom: -5px;">{{iteams.trainingName}}</h1>
+            <i class="bi bi-star-fill stars" *ngFor="let _ of [].constructor(iteams.rating)"></i>
+                <i class="bi bi-star stars" *ngFor="let _ of [].constructor(5-iteams.rating)"></i>
+            </div>
+            <h4>{{iteams.trainingValue}}$</h4>
+
+        </div>
+        <div class="discreb">
+            <p>{{iteams.trainingDescription}}</p>
+
+        </div>
+        <div class="cardTecher">
+            <div style="display: flex;"><img src="{{iteams.teacherPicture}}" alt="">
+                <h4 style="margin-left: 5px; margin-top: 5px;">{{iteams.teacherName}}</h4>
+            </div>
+            <label style="margin-top: 5px; font-size: medium; font-weight: bold;">students: {{iteams.numberOfStudents}}</label>
+        </div>
+        <div style="display:flex ; justify-content:center;align-items: center;padding-top:10px ;">
+        
+         
+            <button style="margin-left: 10px;" class="Btn" routerLink="update Course/{{iteams.trainingId}}">
+
+                edit
+            </button>
+        </div>
+    </div>
+    <a routerLink="add Course" style="text-decoration: none; color: black;">
+    <div class="cardd"> 
+        
+       <div class="addicon"><i class="bi bi-plus-square"></i>
+    <h1 >Add training</h1>
+    </div> 
+       
+    </div></a>
+
+  </div>
+</div>

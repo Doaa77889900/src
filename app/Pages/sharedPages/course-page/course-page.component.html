@@ -1,0 +1,74 @@
+<div *ngIf="!isLoading && !isRating">
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+    <div class="description">
+
+
+
+        <div class="imgg"><img src="{{courseDetile.picture}}" alt="" style="    width: 100%;
+            height: 490px;
+            border-radius: 32px;"></div>
+       
+        <div class="discontact">
+            <h1 style="font-size: 35px !important;"> {{courseDetile.trainingName}}</h1>
+            <div>
+                <p>{{courseDetile.trainingDescription}}</p>
+                <h6 style="font-size: 13px;">training Date : {{courseDetile.date.slice(0,10)}}</h6>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <img src="{{courseDetile.teacherPicture}}" style="width: 20px; height: 20px;">
+                <h4 style=" margin: 0; margin-left: 10px;">{{courseDetile.teacherName}}</h4>
+            </div>
+            <div class="RatingStuCat">
+
+                <div>
+                    <h2 style="font-size:medium;  font-weight: bold; margin-top: 6px; margin-right: 3px;">Rating :</h2>
+                    <i class="bi bi-star-fill stars" *ngFor="let _ of [].constructor(courseDetile.rating||0)"></i>
+                    <i class="bi bi-star stars" *ngFor="let _ of [].constructor(5-courseDetile.rating||0)"></i>
+                    <button style="background: transparent;border: 1px solid black;border-radius: 9px;margin-left: 5px;"(click)="checkRatng()">Rate</button>
+                </div>
+
+                <div style=" font-size: medium; font-weight: bold;">students: {{courseDetile.numberOfStudents}}</div>
+                <div style=" font-size: medium; font-weight: bold;">Category : {{courseDetile.trainingCatagory}}</div>
+                <div style=" font-size: medium; font-weight: bold;">Language : {{courseDetile.trainingLanguage}}</div>
+                <div style=" font-size: medium; font-weight: bold;">Price : {{courseDetile.trainingValue}}$</div>
+
+            </div>
+
+            <div style="margin-right: 5px;">
+                <button type="button" class="b1" (click)="checkCourse()">Enrollment</button>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+</div>
+
+<div *ngIf="isLoading" class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+
+  <div *ngIf="isRating" class="ratingCard">
+    <h1 style="margin-bottom: 10px;">{{courseDetile.courseName}}</h1>
+    <div style="display: flex; align-items: center;align-self: flex-start;margin-bottom: 20px;">
+        <img src="{{courseDetile.teacherPicture}}" style="width: 20px; height: 20px;">
+        <h4 style=" margin: 0; margin-left: 10px;">{{courseDetile.teacherName}}</h4>
+        <h5 style=" margin: 0; margin-left: 50px;">{{courseDetile.coursesCatagory}}</h5>
+        <h5 style=" margin: 0; margin-left: 10px;">{{courseDetile.couresLanguage}}</h5>
+
+    </div>
+    <div class="star-rating">
+      <span *ngFor="let star of stars" class="star" (click)="setRating(star)">
+        <ng-container *ngIf="star <= rating; else emptyStar">&#9733;</ng-container>
+        <ng-template #emptyStar>&#9734;</ng-template>
+    </span>
+    <br>
+</div>
+<label  style="text-align: center;margin-top: 20px;width: 100%;font-size: 16px;">{{ratingLabel}}</label>
+<button type="submit" style="margin-top: 50px;width: 100px;height: 30px;background-color:#6856A4 ;color: white;border: none;" (click)="ratingMethod()">Submit</button>    
+    <button style="position: absolute;top: 0;right: 5px;background-color: red;border: none;border-radius: 50%;width: 30px;height: 30px;" (click)="isRating=!isRating">X</button>
+  </div>

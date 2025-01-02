@@ -1,0 +1,22 @@
+<div style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap;" *ngIf="!isLoading">
+<div style="width: 250px;height: 200px;margin: 50px;display: flex;flex-direction: column;align-items: center;justify-content: center; border: 1px solid black;border-radius: 15px;padding: 10px;" *ngFor="let courses of badCourses">
+<img src="{{courses.pictures}}" alt="" width="100%" height="70px">
+<label  style="font-size: 20px;margin-top: 10px;margin-bottom: 5px;">{{courses.couresName}}</label>
+<div style="display: flex;"><i class="bi bi-star-fill stars"*ngFor="let _ of [].constructor(courses.rating||0)"></i>
+    <i class="bi bi-star stars"  *ngFor="let _ of [].constructor(5-courses.rating||0)"></i>
+               </div>
+ 
+<div style="display: flex;" class="buttons">
+    <button routerLink="/admin/lessonsPage/{{courses.courseId}}/1">Join</button>
+    <button (click)="deleteCourse(courses.courseId)">delete course</button>
+</div>
+</div>
+</div>
+
+<div *ngIf="isLoading" class="load">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+  
+

@@ -1,0 +1,41 @@
+<div *ngIf="!tokenVerified">
+    <p>Verifying token...</p>
+  </div>
+
+
+<div class="cont" *ngIf="tokenVerified">
+    <div class="formm">
+        <h1 style="margin-top: 5px; font-size: 35px;">change Email</h1>
+        <form class="contentt" [formGroup]="emailChangeForm" (ngSubmit)="onSubmit()">
+            <div style="align-self: flex-start;margin-bottom: 15px;">
+            </div>
+            <div class="coolinput">
+                <label for="input" class="text">Email:</label>
+                <input placeholder="Write here..."  type="email" class="input" formControlName="newEmail" #passwrodValue>
+                <div *ngIf="emailChangeForm.get('newEmail')?.hasError('required')">
+                    New email is required.
+                  </div>
+                  <div *ngIf="emailChangeForm.get('newEmail')?.hasError('email')">
+                    Please enter a valid email.
+                  </div>
+              
+                <!-- <label style="color: red;" *ngIf="validPassword">{{validPasswordLabel}}</label> -->
+
+
+            </div>
+       
+
+
+            <div style="width: 100%;">
+                <input type="submit" class="b1" value="change email">
+            </div>
+
+        </form>
+
+    </div>
+    <div style="justify-self:flex-end; width: 50%;display: flex; justify-content: center; align-items: center;"
+        class="info"><img src="Asset 2.png"
+            style="width: 400px;height: 400px; filter: drop-shadow(0px 0px 32px rgba(0, 0, 0, 0.253));"></div>
+</div>
+
+

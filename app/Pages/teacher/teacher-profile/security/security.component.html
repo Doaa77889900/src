@@ -1,0 +1,45 @@
+<div style="width: 100%;" *ngIf="!isLoading">
+    <div class="iconn">
+      <div class="singlicon">
+          <button class="b1" [routerLink]="['/company','profile']">
+              <i class="bi bi-person"></i>
+          </button>
+          <label for="">profile</label>
+      </div>
+    
+      <div class="singlicon" [routerLink]="['security']">
+          <button class="b1 bbh">
+              <i class="bi bi-shield-lock"></i>
+          </button>
+          <label for="">security</label>
+      </div>
+
+      <div class="singlicon">
+          <button class="b1" [routerLink]="['/company','profile','help']">
+              <i class="bi bi-question-circle"></i>
+          </button>
+          <label for="">help</label>
+      </div>
+    </div>
+    <!-- ================================================= -->
+    <div class="seccont">
+    
+      <div class="imgg">
+          <img [src]="imageUrl" alt="" style=" height: 100px; width: 100px; clip-path: circle();">
+      </div>
+    
+          <button class="b1" style="margin-top: 50px;" (click)="requestEmailChange()">Change Email</button>
+          <button class="b1" (click)="requestPasswrodChange()">Change Password</button>
+    
+    
+    
+    
+    </div>
+    
+    </div>
+    
+    <div *ngIf="isLoading" class="load">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>

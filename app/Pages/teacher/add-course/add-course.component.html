@@ -1,0 +1,88 @@
+<form [formGroup]="form" (ngSubmit)="insertCourse(file.files)" *ngIf="!isLoading">
+    <h1 class="title1">Add Training</h1>
+    <div class="container">
+        <div >
+            <img  class="image1" src="../../../../assets//Asset2.png" alt="">
+        </div>
+        <div class="inputs">
+            <div class="coolinput">
+                <label for="corsename" class="text">Training name :</label>
+                <input type="text" placeholder="Enter your course name" id="corsename" class="input" formControlName="couresName" >
+                <label style="font-size: 15px; color: red;" *ngIf="!courseNameValid">{{courseNameValidLabel}}</label>
+            </div>
+            <div class="coolinput">
+                <label for="category" class="text">Category :</label>
+                <select class="typeselect" matTooltip="Select a category" (change)="onCategoryChange()" formControlName="coursesCatagory">
+                    <option *ngFor="let cat of categories" [value]="cat.category">{{cat.category}}</option>
+                </select>
+            </div>
+            
+            <div class="coolinput">
+                <label for="type" class="text">Type</label>
+                <select class="typeselect" formControlName="couresType">
+                    <option *ngFor="let type of selectedCategoryTypes" [value]="type">{{type}}</option>
+                </select>
+            </div>
+            
+            
+           
+        <div class="coolinput">
+            
+            <label for="input" class="text">Language :</label>
+            <select class="typeselect" formControlName="couresLanguage">
+                <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
+                
+            </select>
+        </div>
+        <div class="inputs">
+            <div class="coolinput">
+                <label for="corsename" class="text">Training value :</label>
+                <input type="number" placeholder="Enter your course value" id="corsename" class="input" formControlName="couresValue" minlength="0">
+                <label style="font-size: 15px; color: red;" *ngIf="!couresValueValid">{{couresValueValidLabel}}</label>
+
+            </div></div>
+            <div class="inputs">
+                <div class="coolinput">
+                    <label for="corsename" class="text">description :</label>
+                    <textarea class="textarea" cols="45" rows="7" placeholder="descripe your course" formControlName="couresDescription"></textarea>
+                    <label style="font-size: 15px; color: red;" *ngIf="!couresDescriptionValid">{{couresDescriptionValidLabel}}</label>
+
+                </div>
+            </div>
+            <div *ngIf="selectedImage" class="image-preview" style="margin-top: 50px;">
+                <img [src]="selectedImage" alt="Selected Image" style="width: 150px; height: 150px; cursor: pointer;" (click)="toggleImagePreview()">
+              </div>
+              <div *ngIf="showImagePreview" class="image-preview-overlay" (click)="toggleImagePreview()">
+                <div class="image-preview-content">
+                  <img [src]="selectedImage" alt="Selected Image" style="max-width: 100%; max-height: 100%;">
+                </div>
+              </div>
+            <div class="coolinput1">
+                <div class="input-file-container">
+                    <input id="uplode" type="file" #file class="file" (change)="onFileSelected($event)">
+                    <label for="uplode" class="file-label">Choose Image</label>
+                  </div>
+                  <div class="progress-container" *ngIf="loadingProgress !== null">
+                    <div class="progress-bar" [style.width.%]="loadingProgress"></div>
+                    <div class="progress-info">
+                        {{ loadingProgress }}% ({{ timeRemainingFormatted }})
+                      </div>
+                  </div>
+                    </div>
+        
+        <!-- <input class="input1" type="text">
+            <input class="input1" type="text">
+            <input class="input1" type="text"> -->
+            <div class="buttons">
+                <input type="submit" value="Confirm" class="submitb">
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div *ngIf="isLoading" class="load">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>

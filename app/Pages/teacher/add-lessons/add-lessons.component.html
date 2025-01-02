@@ -1,0 +1,50 @@
+<form [formGroup]="addform" (ngSubmit)="addlessonsMethod()" *ngIf="!isLoading">
+    <h1 class="title1">Comment</h1>
+    <div class="container">
+        <div >
+            <img  class="image1" src="../../../../assets/Asset2.png" alt="">
+        </div>
+        <div class="inputs">
+            <div class="coolinput">
+                <label for="corsename" class="text">Training name :</label>
+                <input type="text" placeholder="Enter your course name" id="corsename" class="input"  formControlName="lessonsName" >
+                <label *ngIf="!lessonsNameValid" style="color: red;">{{lessonsNameValidLabel}}</label>
+            </div>
+            <div class="inputs">
+                <div class="coolinput">
+                    <label for="corsename" class="text">Training description :</label>
+                    <textarea class="textarea" cols="45" rows="7" placeholder="descripe your course" formControlName="lessonsDescription"></textarea>
+               <label *ngIf="!LessonsDescriptionValid" style="color: red;">{{LessonsDescriptionValidLabel}}</label>
+                </div>
+             </div>
+             <div *ngIf="selectedVideo" class="video-preview">
+                <video #videoPlayer controls width="400" height="auto">
+                  <source [src]="selectedVideo" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <div class="coolinput1">
+                <label for="upload" class="text1">Choose your video:</label><br>
+                <input id="upload" type="file" class="file" (change)="onFileSelected($event)" accept="video/mp4">
+              <label *ngIf="!VidelValid" style="color: red;" >{{videoValidLabel}} </label>
+            </div>
+              <div class="progress-container" *ngIf="loadingProgress !== null">
+                <div class="progress-bar" role="progressbar" [style.width.%]="loadingProgress | number: '1.2-2'" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-info">
+                    {{ loadingProgress }}% ({{ timeRemainingFormatted }})
+                  </div>
+              </div>
+            <div class="buttons">
+                <input type="submit" value="confirm" class="submitb">
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div *ngIf="isLoading" class="load">
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
+</div>

@@ -1,0 +1,154 @@
+.description{
+
+    width: 100%;
+    height: 100%;
+    
+        padding: 15px;
+    
+    display: flex;
+    justify-content: space-around;
+    min-height: 550px;
+    }
+    .imgg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+         margin-left: 5px;
+         border-radius: 32px;
+    width: 100%;
+    height: 100%;
+    
+    }
+    .discontact{
+        width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left:50px; ;
+    
+    
+    }
+    .RatingStuCat{
+    
+    display: flex;
+    justify-content: space-around;
+    margin-right: 5px;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    
+    }
+    .RatingStuCat div{
+    
+    width:200px;
+    height:50px;
+    display: flex;
+    align-items: center;
+    
+    
+    }
+    div div .stars{
+        margin-left: 1px;
+        color: rgb(237, 219, 16);
+    }
+    
+    .b1 {
+        width: 100%;
+        height: 50px;
+        border: 3px solid #0f868a;
+        border-radius: 9px;
+        transition: all 0.3s;
+        cursor: pointer;
+        background: #0f868a;
+        font-size: 1.2em;
+        font-weight: 550;
+        font-family: 'Montserrat', sans-serif;
+        color: #ffffff;
+        text-transform: capitalize;    /*??? */
+        margin-bottom: 8px;
+      }
+      
+    @media (max-width:760px) {
+       
+        .RatingStuCat { 
+    width: 100%;
+    flex-wrap: wrap;
+          font-size: small !important;
+          justify-content: flex-start;
+    
+        }
+    
+    .RatingStuCat div{
+    
+    margin-bottom: 5px;
+    height: 30px;
+    justify-content: flex-start;
+    
+    
+    }
+    .description{
+    
+    flex-wrap: wrap;
+    
+    }
+    
+    }
+
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255); /* semi-transparent white background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* ensure the loader is on top of other elements */
+      }
+      
+      .loader {
+        border: 8px solid #f3f3f3; /* Light grey */
+        border-top: 8px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite; /* Spin animation */
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .ratingCard {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff; /* White background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      }
+      
+      .star-rating {
+        font-size: 24px; /* Adjust the size of stars */
+      }
+      
+      .star {
+        color: orange; /* Default star color */
+        cursor: pointer;
+        font-size: 40px;
+      }
+      
+      .star:hover {
+        color: gold; /* Star color on hover */
+      }

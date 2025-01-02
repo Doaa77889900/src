@@ -1,0 +1,21 @@
+
+:host{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    }
+    
+    svg{
+    width: 100%;
+    height: fit-content;
+    display: block;
+    }
+    
+    @media (max-width: 700px) {
+        
+    svg{
+    /* padding-top:50px; */
+    }
+    
+    }
